@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <?php @include("dbcon.php") ?>
     <div class="my-container">
         <div class="stad-players">
             <img class="pitch-image" src="./assets/thestadium.png" alt="" />
