@@ -60,7 +60,7 @@
             </div>
 
             <div class="all-players">
-                <a href="players.html"> All Players <i class="fa-solid fa-angles-right"></i></a>
+                <a href="players.php"> All Players <i class="fa-solid fa-angles-right"></i></a>
             </div>
             <div class="bench">
                 <a href="#players" id="scroll-to-players">

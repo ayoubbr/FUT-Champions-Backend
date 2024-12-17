@@ -16,7 +16,7 @@
             <h1 class="main-title">EA FC 25 Players</h1>
             <div class="players-filter">
                 <a id="add-player" class="main-button">Add player</a>
-                <a href="index.html" class="secondary-button">Go back to Team</a>
+                <a href="index.php" class="secondary-button">Go back to Team</a>
             </div>
         </div>
         <div class="players-main">

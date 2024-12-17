@@ -9,8 +9,4 @@ $connection = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DATABASE);
 
 if (!$connection) {
     die("Connection FFailed!");
-} else {
-    echo '<script>
-    alert("WORKED");
-    </script>';
-}
+} 
