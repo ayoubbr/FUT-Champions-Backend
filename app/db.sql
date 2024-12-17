@@ -1,3 +1,4 @@
+-- Active: 1734006951628@@127.0.0.1@3306@FUT_backend_database
 CREATE TABLE Nationalities (
     id INT AUTO_INCREMENT,
     name VARCHAR(250) NOT NULL,
@@ -67,3 +68,5 @@ CREATE TABLE Players (
     FOREIGN KEY (id_detail_gk) REFERENCES Detail_GKs (id),
     FOREIGN KEY (id_detail_player) REFERENCES Detail_players (id)
 );
+
+SHOW TABLES;

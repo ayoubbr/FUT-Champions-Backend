@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <?php @include("dbcon.php") ?>
+    <?php @include("dbcon.php")    ?>
     <div class="my-container">
         <div class="stad-players">
             <img class="pitch-image" src="./assets/thestadium.png" alt="" />
             <div class="players-container formation-442" id="players-container">
-                <div id="player1"  class="position-slot">
+                <div id="player1" class="position-slot">
                     <img class="playerCard" src="./assets/black-card-removebg-preview.png" alt="" />
                 </div>
                 <div id="player2" class="position-slot">
@@ -58,9 +58,9 @@
                 <div id="formation-442" class="active">4-4-2</div>
                 <div id="formation-343">3-4-3</div>
             </div>
-            
+
             <div class="all-players">
-                <a href="players.html" > All Players <i class="fa-solid fa-angles-right"></i></a>
+                <a href="players.html"> All Players <i class="fa-solid fa-angles-right"></i></a>
             </div>
             <div class="bench">
                 <a href="#players" id="scroll-to-players">
@@ -70,7 +70,7 @@
             </div>
         </div>
     </div>
-    
+
     <main class="players" id="players">
         <div class="players-heading">
             <h1 class="main-title">EA FC 25 Players</h1>
