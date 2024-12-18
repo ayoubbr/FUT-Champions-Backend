@@ -1,4 +1,17 @@
 <?php include('../dashboard.php')  ?>
+ <div class="main-header">
+            <div class="navigation_menu">
+                <p>Showing 17470 results</p>
+            </div>
+            <div class="navigation_menu">
+                <a href="./players_list.php" class="navigation">Players</a>
+                <a href="./nationalities.php" class="navigation">Nationalities</a>
+                <a href="./clubs.php" class="navigation">Clubs</a>
+            </div>
+            <div class="add-buttons">
+                <a href="#" class="navigation">Add new player</a>
+            </div>
+        </div>
 <table class="table">
     <thead>
         <tr>
