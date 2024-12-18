@@ -15,6 +15,7 @@
             <th>Dri</th>
             <th>Def</th>
             <th>Phy</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -51,6 +52,10 @@
                     <td><?php echo $row['dribbling']; ?></td>
                     <td><?php echo $row['defending']; ?></td>
                     <td><?php echo $row['physical']; ?></td>
+                    <td class="last-td">
+                        <a class="edit-player"><i class="fa-solid fa-pen-clip"></i></a>
+                        <a class="delete-player"><i class="fa-solid fa-trash"></i></a>
+                    </td>
                 </tr>
         <?php
             }
