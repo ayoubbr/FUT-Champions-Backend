@@ -24,12 +24,12 @@ if (isset($_POST['submit'])) {
 
     if ($name != '') {
         $sql = "INSERT INTO `Players` (name, rating, position_player, photo, id_nationality, id_club, id_detail_player)
-    VALUES ('$name','$rating','$position','$photo', '$nationality', '$club', '$id_details')";
+             VALUES ('$name','$rating','$position','$photo', '$nationality', '$club', '$id_details')";
 
         $sql_details = "INSERT INTO `Detail_players` VALUES 
-    ('$id_details',
-    '$pace','$shooting', '$passing', '$dribbling', '$defending', '$physical', 
-    '$diving','$handling', '$kicking', '$reflexes', '$speed','$positioning')";
+         ('$id_details',
+            '$pace','$shooting', '$passing', '$dribbling', '$defending', '$physical', 
+         '$diving','$handling', '$kicking', '$reflexes', '$speed','$positioning')";
 
         if (mysqli_query($connection, $sql_details) && mysqli_query($connection, $sql)) {
             header("location: ../pages/players_list.php");
@@ -39,6 +39,4 @@ if (isset($_POST['submit'])) {
     } else {
         echo "Name, Class and Marks cannot be empty!";
     }
-
-    $name = $_POST['name'] = NULL;
 }

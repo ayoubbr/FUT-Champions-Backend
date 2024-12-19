@@ -111,7 +111,6 @@ include('../crud/create.php');
                 <div class="one-input-box">
                     <label for="club">Club</label>
                     <div class="one-input">
-                        <!-- <input type="text" id="club" name="club" placeholder="e.g Inter Miami"> -->
                         <select id="club" name="club">
                             <?php
                             foreach ($clubs as $key => $club) {
@@ -290,6 +289,13 @@ include('../crud/create.php');
 <!-- ============================= modal ============================= -->
 </div>
 <script>
+    const form = document.getElementById('form');
+    const playerName = document.getElementById('name');
+    const photo = document.getElementById('photo');
+    const position = document.getElementById('position');
+    const nationality = document.getElementById('nationality');
+    const club = document.getElementById('club');
+    const rating = document.getElementById('rating');
     const addPlayer = document.getElementById('add-player');
     const modalContainer = document.getElementById('modal-container');
     const close = document.getElementById('close');
@@ -303,9 +309,253 @@ include('../crud/create.php');
     close.addEventListener('click', () => {
         modalContainer.classList.remove('show');
     });
+
     submit.style.display = "none";
-    submit_button.addEventListener('click', () => {
-        submit.click();
+
+
+    function checkInputs() {
+        let isValid = true;
+
+        const playerNameValue = playerName.value.trim();
+        const photoValue = photo.value.trim();
+        const positionValue = position.value.trim();
+        const nationalityValue = nationality.value.trim();
+        const clubValue = club.value.trim();
+        const ratingValue = rating.value.trim();
+
+
+        divingValue = document.getElementById("diving")?.value.trim();
+        handlingValue = document.getElementById("handling")?.value.trim();
+        kickingValue = document.getElementById("kicking")?.value.trim();
+        reflexesValue = document.getElementById("reflexes")?.value.trim();
+        speedValue = document.getElementById("speed")?.value.trim();
+        positioningValue = document.getElementById("positioning")?.value.trim();
+
+        if (divingValue === '') {
+            setErrorFor(diving, 'diving cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(divingValue, 1, 99)) {
+            setErrorFor(diving, 'diving should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(diving);
+        }
+
+
+        if (handlingValue === '') {
+            setErrorFor(handling, 'handling cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(handlingValue, 1, 99)) {
+            setErrorFor(handling, 'handling should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(handling);
+        }
+
+
+        if (kickingValue === '') {
+            setErrorFor(kicking, 'kicking cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(kickingValue, 1, 99)) {
+            setErrorFor(kicking, 'kicking should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(kicking);
+        }
+
+
+        if (reflexesValue === '') {
+            setErrorFor(reflexes, 'reflexes cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(reflexesValue, 1, 99)) {
+            setErrorFor(reflexes, 'reflexes should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(reflexes);
+        }
+
+
+        if (speedValue === '') {
+            setErrorFor(speed, 'speed cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(speedValue, 1, 99)) {
+            setErrorFor(speed, 'speed should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(speed);
+        }
+
+
+        if (positioningValue === '') {
+            setErrorFor(positioning, 'positioning cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(positioningValue, 1, 99)) {
+            setErrorFor(positioning, 'positioning should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(positioning);
+        }
+
+
+        paceValue = document.getElementById("pace")?.value.trim();
+        shootingValue = document.getElementById("shooting")?.value.trim();
+        passingValue = document.getElementById("passing")?.value.trim();
+        dribblingValue = document.getElementById("dribbling")?.value.trim();
+        defendingValue = document.getElementById("defending")?.value.trim();
+        physicalValue = document.getElementById("physical")?.value.trim();
+
+        if (paceValue === '') {
+            setErrorFor(pace, 'Pace cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(paceValue, 1, 99)) {
+            setErrorFor(pace, 'Pace should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(pace);
+        }
+
+
+        if (shootingValue === '') {
+            setErrorFor(shooting, 'Shooting cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(shootingValue, 1, 99)) {
+            setErrorFor(shooting, 'Shooting should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(shooting);
+        }
+
+
+        if (passingValue === '') {
+            setErrorFor(passing, 'Passing cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(passingValue, 1, 99)) {
+            setErrorFor(passing, 'passing should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(passing);
+        }
+
+
+        if (dribblingValue === '') {
+            setErrorFor(dribbling, 'Dribbling cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(dribblingValue, 1, 99)) {
+            setErrorFor(dribbling, 'dribbling should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(dribbling);
+        }
+
+
+        if (defendingValue === '') {
+            setErrorFor(defending, 'Defending cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(defendingValue, 1, 99)) {
+            setErrorFor(defending, 'defending should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(defending);
+        }
+
+
+        if (physicalValue === '') {
+            setErrorFor(physical, 'Physical cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(physicalValue, 1, 99)) {
+            setErrorFor(physical, 'physical should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(physical);
+        }
+
+
+        if (playerNameValue === '') {
+            setErrorFor(playerName, 'Player name cannot be empty!');
+            isValid = false;
+        } else {
+            setSuccessFor(playerName);
+        }
+
+
+        if (photoValue === '') {
+            setErrorFor(photo, 'Photo cannot be empty!');
+            isValid = false;
+        } else if (!URL.canParse(photoValue)) {
+            setErrorFor(photo, 'Photo url is not valid!');
+            isValid = false;
+        } else {
+            setSuccessFor(photo);
+        }
+
+        if (positionValue === '') {
+            setErrorFor(position, 'Position cannot be empty!');
+            isValid = false;
+        } else {
+            setSuccessFor(position);
+        }
+
+
+        if (nationalityValue === '') {
+            setErrorFor(nationality, 'Nationality cannot be empty!');
+            isValid = false;
+        } else {
+            setSuccessFor(nationality);
+        }
+
+        if (clubValue === '') {
+            setErrorFor(club, 'Club cannot be empty!');
+            isValid = false;
+        } else {
+            setSuccessFor(club);
+        }
+
+        if (ratingValue === '') {
+            setErrorFor(rating, 'Rating cannot be empty!');
+            isValid = false;
+        } else if (!isValidNumber(ratingValue, 1, 99)) {
+            setErrorFor(rating, 'rating should be between 1 and 99!');
+            isValid = false;
+        } else {
+            setSuccessFor(rating);
+        }
+
+        return isValid;
+    }
+
+    function setErrorFor(input, message) {
+        if (!input) return;
+        const oneInput = input.parentElement;
+        if (!oneInput) return;
+        const small = oneInput.querySelector('small');
+        small.innerText = message;
+        oneInput.className = 'one-input error';
+    }
+
+    function setSuccessFor(input) {
+        if (!input) return;
+        const oneInput = input.parentElement;
+        if (!oneInput) return;
+        oneInput.className = 'one-input success';
+    }
+
+    submit_button.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if (checkInputs()) {
+            submit.click();
+            form.reset();
+        };
+
     });
+
+    function isValidNumber(input, min, max) {
+        const regex = new RegExp(`^(${min}|${max}|([1-9][0-9]*))$`);
+        if (regex.test(input)) {
+            const num = Number(input);
+            return num >= min && num <= max;
+        }
+        return false;
+    }
 </script>
 <?php include('../dash_footer.php') ?>
