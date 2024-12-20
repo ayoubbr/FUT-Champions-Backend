@@ -43,8 +43,8 @@ include('../crud/create.php');
                 <td><?php echo $player['player_name']; ?></td>
                 <td><?php echo $player['rating']; ?></td>
                 <td><?php echo $player['position_player']; ?></td>
-                <td><?php echo $player['nationality']; ?></td>
-                <td><?php echo $player['club']; ?></td>
+                <td><img src="<?php echo $player['flag']; ?>" alt="" height="28px"></td>
+                <td><img src="<?php echo $player['logo']; ?>" alt="" height="40px"></td>
                 <td><?php echo $player['pace']; ?></td>
                 <td><?php echo $player['shooting']; ?></td>
                 <td><?php echo $player['passing']; ?></td>
@@ -52,7 +52,29 @@ include('../crud/create.php');
                 <td><?php echo $player['defending']; ?></td>
                 <td><?php echo $player['physical']; ?></td>
                 <td class="last-td">
-                    <a class="edit-player"><i class="fa-solid fa-pen-clip"></i></a>
+                    <a class="edit-player"
+                        data-id="<?php echo $player['id']; ?>"
+                        data-photo="<?php echo $player['photo']; ?>"
+                        data-name="<?php echo $player['player_name']; ?>"
+                        data-rating="<?php echo $player['rating']; ?>"
+                        data-position="<?php echo $player['position_player']; ?>"
+                        data-nationality="<?php echo $player['nationality']; ?>"
+                        data-club="<?php echo $player['club']; ?>"
+                        data-pace="<?php echo $player['pace']; ?>"
+                        data-shooting="<?php echo $player['shooting']; ?>"
+                        data-passing="<?php echo $player['passing']; ?>"
+                        data-dribbling="<?php echo $player['dribbling']; ?>"
+                        data-defending="<?php echo $player['defending']; ?>"
+                        data-physical="<?php echo $player['physical']; ?>"
+                        data-diving="<?php echo $player['diving']; ?>"
+                        data-handling="<?php echo $player['handling']; ?>"
+                        data-reflexes="<?php echo $player['reflexes']; ?>"
+                        data-speed="<?php echo $player['physical']; ?>"
+                        data-kicking="<?php echo $player['kicking']; ?>"
+                        data-positioning="<?php echo $player['positioning']; ?>"
+                        data-id-details="<?php echo $player['id_details']; ?>"
+                        >
+                        <i class="fa-solid fa-pen-clip"></i></a>
                     <a class="delete-player"><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
@@ -67,6 +89,15 @@ include('../crud/create.php');
         <h1>Add a player here</h1>
         <form method="POST" action="../crud/create.php" id="form" class="form">
             <div class="one-line">
+                <div class="one-input-box id_details">
+                    <label for="name">id details</label>
+                    <div class="one-input">
+                        <input type="text" id="id_details" value="<?php echo $player['id_details'] ?>" name="id_details" >
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-exclamation"></i>
+                        <small>Error message</small>
+                    </div>
+                </div>
                 <div class="one-input-box">
                     <label for="name">Player Name</label>
                     <div class="one-input">
@@ -305,6 +336,70 @@ include('../crud/create.php');
     addPlayer.addEventListener('click', () => {
         modalContainer.classList.add('show');
     });
+
+    document.querySelectorAll('.edit-player').forEach(button => {
+        button.addEventListener('click', function() {
+            const playerId = this.getAttribute("data-id");
+            const playerIdDetails = this.getAttribute("data-id-details");
+            const playerPhoto = this.getAttribute("data-photo");
+            const playerName = this.getAttribute("data-name");
+            const playerRating = this.getAttribute("data-rating");
+            const playerPosition = this.getAttribute("data-position");
+            const playerNationality = this.getAttribute("data-nationality");
+            const playerClub = this.getAttribute("data-club");
+            const playerPace = this.getAttribute("data-pace");
+            const playerShooting = this.getAttribute("data-shooting");
+            const playerPassing = this.getAttribute("data-passing");
+            const playerDribbling = this.getAttribute("data-dribbling");
+            const playerDefending = this.getAttribute("data-defending");
+            const playerPhysical = this.getAttribute("data-physical");
+            const playerDiving = this.getAttribute("data-diving");
+            const playerReflexes = this.getAttribute("data-reflexes");
+            const playerSpeed = this.getAttribute("data-speed");
+            const playerKicking = this.getAttribute("data-kicking");
+            const playerHandling = this.getAttribute("data-handling");
+            const playerPositiong = this.getAttribute("data-positioning");
+
+            Array.from(nationality.options).forEach(option => {
+                if (option.text.trim() === playerNationality.trim()) {
+                    nationality.value = option.value;
+                }
+            });
+
+            Array.from(club.options).forEach(option => {
+                if (option.text.trim() === playerClub.trim()) {
+                    club.value = option.value;
+                }
+            });
+
+            document.getElementById("name").value = playerName;
+            document.getElementById("photo").value = playerPhoto;
+            document.getElementById("rating").value = playerRating;
+            document.getElementById("position").value = playerPosition;
+            document.getElementById("pace").value = playerPace;
+            document.getElementById("shooting").value = playerShooting;
+            document.getElementById("passing").value = playerPassing;
+            document.getElementById("dribbling").value = playerDribbling;
+            document.getElementById("defending").value = playerDefending;
+            document.getElementById("physical").value = playerPhysical;
+            document.getElementById("diving").value = playerDiving;
+            document.getElementById("speed").value = playerSpeed;
+            document.getElementById("reflexes").value = playerReflexes;
+            document.getElementById("passing").value = playerSpeed;
+            document.getElementById("kicking").value = playerKicking;
+            document.getElementById("handling").value = playerHandling;
+            document.getElementById("positioning").value = playerPositiong;
+            document.getElementById("id_details").value = playerIdDetails;
+
+            const form = document.getElementById("form");
+            form.action = `../crud/update.php?id=${playerId}`;
+
+            modalContainer.classList.add('show');
+
+        });
+    });
+
+
 
     close.addEventListener('click', () => {
         modalContainer.classList.remove('show');

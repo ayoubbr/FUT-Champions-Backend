@@ -21,9 +21,11 @@ while ($row = mysqli_fetch_assoc($result1)) {
 
 $query_players =
     "SELECT Players.id, Players.name as player_name, Players.rating,
-                Players.position_player,Players.photo, Nationalities.name as nationality, Clubs.name as club,
-                Detail_players.pace as pace, Detail_players.shooting as shooting, Detail_players.passing as passing,
+                Players.position_player,Players.photo, Nationalities.name as nationality, Nationalities.flag as flag, Clubs.name as club, Clubs.logo as logo,
+               Detail_players.id as id_details, Detail_players.pace as pace, Detail_players.shooting as shooting, Detail_players.passing as passing,
                 Detail_players.dribbling as dribbling, Detail_players.defending as defending, Detail_players.physical as physical
+                , Detail_players.handling as handling, Detail_players.diving as diving, Detail_players.reflexes as reflexes
+                , Detail_players.speed as speed, Detail_players.positioning as positioning, Detail_players.kicking as kicking
                 FROM Players 
                 INNER JOIN Nationalities ON Nationalities.id = Players.id_nationality
                 INNER JOIN Clubs ON Clubs.id = Players.id_club
